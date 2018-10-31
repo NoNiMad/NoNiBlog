@@ -21,18 +21,17 @@ class AdminController {
     return view.render('Admin/PostEdit', { post: post })
   }
 
-  async postSave ({ request, response, auth }) {
+  async postSave ({ request, response, auth, view }) {
     const { title, content } = request.all()
     try {
       const post = new Post()
-      post.user_id = auth.user.id
+      post.author = auth.user.id
       post.title = title
       post.slug = title.toLowerCase().replace(" ", "-").replace(/[^a-z0-9-]/g, "")
       post.content = content
 
       await post.save()
     } catch(err) {
-      console.log('error')
       return view.render('Admin/PostEdit', { error: `Erreur d'insertion` })
     }
 
