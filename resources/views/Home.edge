@@ -1,0 +1,7 @@
+@layout('Layout')
+
+@section('content')
+  @each(post in posts)
+    @!component('Components.PostPreview', post = post)
+  @endeach
+@endsection

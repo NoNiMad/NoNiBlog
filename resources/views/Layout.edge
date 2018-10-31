@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello Adonis</title>
+    {{ css('bulma.min') }}
+    {{ css('style') }}
+    @!section('css')
+    @!section('js')
+  </head>
+  <body>
+    <section class="hero is-dark is-small">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title">
+            NoNiBlog
+          </p>
+          <p class="subtitle">
+            Au pays de NoNi
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <div class="container">
+          <nav class="navbar is-transparent">
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                  Accueil
+                </a>
+                <a class="navbar-item" href="/blog">
+                  Blog
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+  
+    <section id="main-container" class="container">
+      <div class="columns">
+        <div class="column is-2">
+          @include('Partials.Sidebar')
+        </div>
+        <div class="column">
+          @if(error)
+            <div class="notification is-danger">
+              <button class="delete"></button>
+              {{ error }}
+            </div>
+          @endif
+          @!section('content')
+        </div>
+      </div>
+    </section>
+
+    <footer id="main-footer" class="footer">
+      <div class="content is-dark has-text-centered">
+        <p>Codé -trop- rapidement mais avec ♥ par <a href="https://twitter.com/NoNiMad">@NoNiMad</a> (surprenant n'est-il pas ?)</p>
+      </div>
+    </footer>
+  </body>
+</html>

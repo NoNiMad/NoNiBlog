@@ -1,0 +1,17 @@
+body {
+  font-family: 'SegoeUI', sans-serif;
+  background: url('hexellence.png')
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#main-container {
+  margin: 2em auto;
+}
+
+#main-footer {
+  padding: 1em;
+}
