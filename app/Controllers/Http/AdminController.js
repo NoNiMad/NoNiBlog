@@ -25,7 +25,7 @@ class AdminController {
     const { title, content } = request.all()
     try {
       const post = new Post()
-      post.author = auth.user.id
+      post.user_id = auth.user.id
       post.title = title
       post.slug = title.toLowerCase().replace(" ", "-").replace(/[^a-z0-9-]/g, "")
       post.content = content
