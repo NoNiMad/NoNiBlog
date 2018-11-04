@@ -1,9 +1,9 @@
 {
   "name": "nonimad",
   "version": "4.1.0",
-  "adonis-version": "4.1.0",
+  "adonis-version": "0.1.0",
   "description": "nonimad.fr website",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "node ace test"
@@ -12,7 +12,7 @@
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
+  "author": "Julien Rouault",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
@@ -31,5 +31,13 @@
   "devDependencies": {},
   "autoload": {
     "App": "./app"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "app",
+      "config",
+      "start"
+    ],
+    "verbose": true
   }
 }
