@@ -10,6 +10,7 @@ class PostController {
 
     async postNew ({ view }) {
         const newPost = new Post()
+        newPost.id = -1
         newPost.title = ""
         newPost.content = ""
         return view.render('Admin/PostEdit', { post: newPost })
@@ -24,7 +25,8 @@ class PostController {
         const { id, title, content } = request.all()
         try {
             let post
-            if (id == undefined) {
+            if (id == -1) {
+                console.log("coucou")
                 post = new Post()
                 post.user_id = auth.user.id
             } else {

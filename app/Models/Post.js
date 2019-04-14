@@ -7,9 +7,9 @@ class Post extends Model {
     static boot () {
         super.boot()
         
-        this.addHook('beforeCreate', async (post) => {
+        this.addHook('beforeSave', async (post) => {
             if (post.title) {
-                post.slug = title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')
+                post.slug = post.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')
             }
         })
       }
