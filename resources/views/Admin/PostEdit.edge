@@ -37,6 +37,7 @@ function preview() {
       <textarea id="content" class="textarea" name="content" placeholder="Contenu, en Markdown !">{{ post.content }}</textarea>
     </div>
   </div>
+  <input type="hidden" name="id" value="{{ post.id }}" />
   {{ csrfField() }}
 </form>
 <button class="button is-link" onClick="preview()">Preview</button>

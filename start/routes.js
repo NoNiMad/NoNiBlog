@@ -26,10 +26,11 @@ Route.get('profile', 'UserController.profile').middleware('auth')
 Route.group(() => {
   Route.get('/', 'AdminController.home')
   
-  Route.get('posts', 'AdminController.posts')
-  Route.get('posts/new', 'AdminController.postNew')
-  Route.get('posts/edit/:id', 'AdminController.postEdit')
-  Route.post('posts/edit', 'AdminController.postSave')
+  Route.get('posts', 'PostController.posts')
+  Route.get('posts/new', 'PostController.postNew')
+  Route.get('posts/edit/:id', 'PostController.postEdit').as('post.edit')
+  Route.post('posts/edit', 'PostController.postSave')
+  Route.get('posts/delete/:id', 'PostController.postDelete').as('post.delete')
 
   Route.get('users', 'AdminController.users')
 })

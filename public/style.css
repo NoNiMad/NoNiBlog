@@ -8,6 +8,12 @@ a {
   text-decoration: none;
 }
 
+a.disabled {
+    cursor: default;
+    font-style: italic;
+    color: grey;
+}
+
 #main-container {
   margin: 2em auto;
 }

@@ -3,9 +3,9 @@
     Blog
   </p>
   <ul class="menu-list">
-    <li><a>Derniers articles</a></li>
-    <li><a>Aléatoire</a></li>
-    <li><a>Catégories</a></li>
+    <li><a class="disabled">Derniers articles</a></li>
+    <li><a class="disabled">Aléatoire</a></li>
+    <li><a class="disabled">Catégories</a></li>
   </ul>
   <p class="menu-label">
     @loggedIn
@@ -16,11 +16,11 @@
   </p>
   <ul class="menu-list">
     @loggedIn
-      <li><a href="/profile"/>Votre profil</a></li>
+      <li><a href="/profile">Votre profil</a></li>
       @if(auth.user.is_admin)
-        <li><a href="/admin"/>Administration</a><li>
+        <li><a href="/admin">Administration</a><li>
       @endif
-      <li><a href="/logout"/>Se déconnecter</a></li>
+      <li><a href="/logout">Se déconnecter</a></li>
     @else
       <li><a href="/login">Connexion</a></li>
       <li><a href="/sign-in">Inscription</a></li>

@@ -4,19 +4,22 @@
 <a href="/admin/posts/new" class="button is-primary">Nouveau post</a>
 <br><br>
 <table class="table is-fullwidth is-striped is-hoverable">
-  <thead>
-    <th>Titre</th>
-    <th>Auteur</th>
-    <th>Date</th>
-    <th>Actions</th>
-  </thead>
-  @each(post in posts)
-    <tr>
-      <td>{{ post.title }}</td>
-      <td>{{ post.author.username }}</td>
-      <td>{{ post.created_at }}</td>
-      <td>Éditer / Supprimer</td>
-    </tr>
-  @endeach
+    <thead>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </thead>
+    @each(post in posts)
+        <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.author.username }}</td>
+            <td>{{ post.created_at }}</td>
+            <td>
+                <a href="{{ route('post.edit', { id: post.id }) }}" class="button">Éditer</a>
+                <a href="{{ route('post.delete', { id: post.id }) }}" class="button">Supprimer</a>
+            </td>
+        </tr>
+    @endeach
 </table>
 @endsection
