@@ -8,6 +8,7 @@
         <th>Titre</th>
         <th>Auteur</th>
         <th>Date</th>
+        <th>Publié</th>
         <th>Actions</th>
     </thead>
     @each(post in posts)
@@ -15,6 +16,7 @@
             <td>{{ post.title }}</td>
             <td>{{ post.author.username }}</td>
             <td>{{ post.created_at }}</td>
+            <td>{{ post.is_draft ? "❌" : "✔️" }}</td>
             <td>
                 <a href="{{ route('post.edit', { id: post.id }) }}" class="button">Éditer</a>
                 <a href="{{ route('post.delete', { id: post.id }) }}" class="button">Supprimer</a>

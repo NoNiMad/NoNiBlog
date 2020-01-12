@@ -28,8 +28,13 @@ function preview() {
   <div class="field">
     <label class="label">Titre</label>
     <div class="control">
-    <input class="input" type="text" name="title" placeholder="Titre" value="{{ post.title }}">
+      <input class="input" type="text" name="title" placeholder="Titre" value="{{ post.title }}">
     </div>
+  </div>
+  <div class="field">
+    <label class="checkbox">Brouillon :
+      <input class="checkbox" type="checkbox" name="is_draft" {{ post.is_draft ? "checked" : "" }}>
+    </label>
   </div>
   <div class="field">
     <label class="label">Contenu</label>

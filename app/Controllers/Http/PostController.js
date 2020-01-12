@@ -22,11 +22,10 @@ class PostController {
     }
 
     async postSave ({ request, response, auth, view }) {
-        const { id, title, content } = request.all()
+        const { id, title, content, is_draft } = request.all()
         try {
             let post
             if (id == -1) {
-                console.log("coucou")
                 post = new Post()
                 post.user_id = auth.user.id
             } else {
@@ -34,6 +33,7 @@ class PostController {
             }
             post.title = title
             post.content = content
+            post.is_draft = is_draft === "on"
 
             await post.save()
         } catch(err) {
