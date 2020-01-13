@@ -13,6 +13,7 @@ class PostController {
         newPost.id = -1
         newPost.title = ""
         newPost.content = ""
+        newPost.is_draft = true
         return view.render('Admin/PostEdit', { post: newPost })
     }
 
