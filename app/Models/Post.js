@@ -15,7 +15,7 @@ class Post extends Model {
       }
 
     getCreatedAt (created_at) {
-        return created_at.format('DD/MM/YYYY à hh:mm:ss')
+        return created_at.format('DD/MM/YYYY à HH:mm:ss')
     }
 
     getContent(content) {
