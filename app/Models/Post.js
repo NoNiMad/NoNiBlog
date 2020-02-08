@@ -26,6 +26,12 @@ class Post extends Model {
     author () {
         return this.belongsTo('App/Models/User')
     }
+
+    tags () {
+        return this
+            .belongsToMany('App/Models/Tag')
+            .pivotTable('posts_tags')
+    }
 }
 
 module.exports = Post

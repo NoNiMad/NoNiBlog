@@ -1,0 +1,19 @@
+@layout('LayoutAdmin')
+
+@section('content')
+<form method="POST" action="{{ route('TagController.save') }}">
+  <div class="field">
+    <div class="control">
+      <button class="button is-link">Enregistrer</button>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Nom</label>
+    <div class="control">
+      <input class="input" type="text" name="name" placeholder="Nom" value="{{ tag.name }}">
+    </div>
+  </div>
+  <input type="hidden" name="id" value="{{ tag.id }}" />
+  {{ csrfField() }}
+</form>
+@endsection

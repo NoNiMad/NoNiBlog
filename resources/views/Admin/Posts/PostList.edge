@@ -1,7 +1,7 @@
 @layout('LayoutAdmin')
 
 @section('content')
-<a href="/admin/posts/new" class="button is-primary">Nouveau post</a>
+<a href="{{ route('PostController.create') }}" class="button is-primary">Nouveau post</a>
 <br><br>
 <table class="table is-fullwidth is-striped is-hoverable">
     <thead>
@@ -9,6 +9,7 @@
         <th>Auteur</th>
         <th>Date</th>
         <th>Publié</th>
+        <th>Tags</th>
         <th>Actions</th>
     </thead>
     @each(post in posts)
@@ -18,8 +19,15 @@
             <td>{{ post.created_at }}</td>
             <td>{{ post.is_draft ? "❌" : "✔️" }}</td>
             <td>
-                <a href="{{ route('post.edit', { id: post.id }) }}" class="button">Éditer</a>
-                <a href="{{ route('post.delete', { id: post.id }) }}" class="button">Supprimer</a>
+                <div class="tags">
+                    @each(tag in post.tags)
+                        <span class="tag">{{ tag.name }}</span>
+                    @endeach
+                </div>
+            </td>
+            <td>
+                <a href="{{ route('PostController.edit', { id: post.id }) }}" class="button">Éditer</a>
+                <a href="{{ route('PostController.delete', { id: post.id }) }}" class="button">Supprimer</a>
             </td>
         </tr>
     @endeach

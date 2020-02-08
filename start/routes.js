@@ -17,6 +17,7 @@ const Route = use('Route')
 const User = use('App/Models/User')
 
 Route.get('/', 'GlobalController.home')
+Route.get('/tag/:id', 'GlobalController.postsForTag')
 
 Route.route('sign-in', 'UserController.signIn', ['GET', 'POST'])
 Route.route('login', 'UserController.login', ['GET', 'POST'])
@@ -26,11 +27,17 @@ Route.get('profile', 'UserController.profile').middleware('auth')
 Route.group(() => {
   Route.get('/', 'AdminController.home')
   
-  Route.get('posts', 'PostController.posts')
-  Route.get('posts/new', 'PostController.postNew')
-  Route.get('posts/edit/:id', 'PostController.postEdit').as('post.edit')
-  Route.post('posts/edit', 'PostController.postSave')
-  Route.get('posts/delete/:id', 'PostController.postDelete').as('post.delete')
+  Route.get('posts', 'PostController.list')
+  Route.get('posts/create', 'PostController.create')
+  Route.get('posts/edit/:id', 'PostController.edit')
+  Route.post('posts/edit', 'PostController.save')
+  Route.get('posts/delete/:id', 'PostController.delete')
+
+  Route.get('tags', 'TagController.list')
+  Route.get('tags/create', 'TagController.create')
+  Route.get('tags/edit/:id', 'TagController.edit')
+  Route.post('tags/edit', 'TagController.save')
+  Route.get('tags/delete/:id', 'TagController.delete')
 
   Route.get('users', 'AdminController.users')
 })

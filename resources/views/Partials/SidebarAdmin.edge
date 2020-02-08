@@ -6,7 +6,10 @@
         Blog
     </p>
     <ul class="menu-list">
-        <li><a href="/admin/posts">Articles</a></li>
+        <li><a href="{{ route('PostController.list') }}">Articles</a></li>
+    </ul>
+    <ul class="menu-list">
+        <li><a href="{{ route('TagController.list') }}">Tags</a></li>
     </ul>
     <p class="menu-label">
         Utilisateurs

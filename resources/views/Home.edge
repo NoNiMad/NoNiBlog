@@ -1,6 +1,12 @@
 @layout('Layout')
 
 @section('content')
+  @if(info)
+  <div class="notification is-info">
+    {{ info }}
+  </div>
+  @endif
+
   @each(post in posts)
     @!component('Components.PostPreview', post = post)
   @endeach

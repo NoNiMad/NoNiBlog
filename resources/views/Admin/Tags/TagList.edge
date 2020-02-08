@@ -1,0 +1,21 @@
+@layout('LayoutAdmin')
+
+@section('content')
+<a href="{{ route('TagController.create') }}" class="button is-primary">Nouveau tag</a>
+<br><br>
+<table class="table is-fullwidth is-striped is-hoverable">
+    <thead>
+        <th>Nom</th>
+        <th>Actions</th>
+    </thead>
+    @each(tag in tags)
+        <tr>
+            <td>{{ tag.name }}</td>
+            <td>
+                <a href="{{ route('TagController.edit', { id: tag.id }) }}" class="button">Éditer</a>
+                <a href="{{ route('TagController.delete', { id: tag.id }) }}" class="button">Supprimer</a>
+            </td>
+        </tr>
+    @endeach
+</table>
+@endsection

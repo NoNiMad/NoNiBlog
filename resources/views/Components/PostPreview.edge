@@ -4,4 +4,11 @@
   <div class="content markdown">
     {{{ post.content }}}
   </div>
+  <div class="tags">
+    @each(tag in post.tags)
+      <a href="{{ route('GlobalController.postsForTag', { id: tag.id }) }}">
+        <span class="tag">{{ tag.name }}</span>
+      </a>
+    @endeach
+  </div>
 </div>
