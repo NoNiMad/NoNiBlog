@@ -8,7 +8,7 @@ class UserController {
       try {
         await auth.attempt(email, password)
       } catch(err) {
-        console.log('error')
+        console.error(err)
         return view.render('Login', { error: `Erreur dans le nom d'utilisateur ou le mot de passe` })
       }
 
@@ -34,6 +34,7 @@ class UserController {
         user.password = password
         await user.save()
       } catch(err) {
+        console.error(err)
         return view.render('SignIn', { error: `Érreur lors de la création de l'utilisateur` })
       }
 

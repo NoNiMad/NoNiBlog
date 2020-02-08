@@ -31,6 +31,10 @@ class User extends Model {
   posts () {
     return this.hasMany('App/Models/Post')
   }
+
+  static get hidden () {
+    return ['password']
+  }
 }
 
 module.exports = User
