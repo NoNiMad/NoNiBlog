@@ -3,38 +3,43 @@
 const Hash = use('Hash')
 const Model = use('Model')
 
-class User extends Model {
-  static boot () {
-    super.boot()
-    
-    this.addHook('beforeCreate', async (userInstance) => {
-      if (userInstance.password) {
-        userInstance.password = await Hash.make(userInstance.password)
-      }
-    })
-  }
+class User extends Model
+{
+    static boot()
+    {
+        super.boot()
 
-  /**
-   * A relationship on tokens is required for auth to
-   * work. Since features like `refreshTokens` or
-   * `rememberToken` will be saved inside the
-   * tokens table.
-   *
-   * @method tokens
-   *
-   * @return {Object}
-   */
-  tokens () {
-    return this.hasMany('App/Models/Token')
-  }
+        this.addHook('beforeCreate', async (userInstance) =>
+        {
+            if (userInstance.password)
+                userInstance.password = await Hash.make(userInstance.password)
+        })
+    }
 
-  posts () {
-    return this.hasMany('App/Models/Post')
-  }
+    /**
+     * A relationship on tokens is required for auth to
+     * work. Since features like `refreshTokens` or
+     * `rememberToken` will be saved inside the
+     * tokens table.
+     *
+     * @method tokens
+     *
+     * @return {Object}
+     */
+    tokens()
+    {
+        return this.hasMany('App/Models/Token')
+    }
 
-  static get hidden () {
-    return ['password']
-  }
+    posts()
+    {
+        return this.hasMany('App/Models/Post')
+    }
+
+    static get hidden()
+    {
+        return ['password']
+    }
 }
 
 module.exports = User

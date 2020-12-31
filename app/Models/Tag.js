@@ -2,24 +2,30 @@
 
 const Model = use('Model')
 
-class Tag extends Model {
-    static boot () {
+class Tag extends Model
+{
+    static boot()
+    {
         super.boot()
-        
-        this.addHook('beforeSave', async (post) => {
+
+        this.addHook('beforeSave', async (post) =>
+        {
             post.name = post.name.trim()
         })
     }
 
-    static get createdAtColumn () {
+    static get createdAtColumn()
+    {
         return null
     }
 
-    static get updatedAtColumn () {
+    static get updatedAtColumn()
+    {
         return null
     }
 
-    posts () {
+    posts()
+    {
         return this
             .belongsToMany('App/Models/Tag')
             .pivotTable('posts_tags')

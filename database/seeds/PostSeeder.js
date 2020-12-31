@@ -12,12 +12,14 @@
 
 const Factory = use('Factory')
 
-class PostSeeder {
-  async run () {
-    const post = await Factory
-      .model('App/Models/Post')
-      .createMany(5)
-  }
+class PostSeeder
+{
+    async run()
+    {
+        const post = await Factory
+            .model('App/Models/Post')
+            .createMany(5)
+    }
 }
 
 module.exports = PostSeeder
