@@ -47,6 +47,7 @@ class PostController
     async save({ request, response, auth, view })
     {
         const { id, title, content, is_draft, tags } = request.all()
+        const tagsIDs = tags === undefined ? [] : typeof(tags) === "number" ? [ tags ] : tags
 
         let post
         try
@@ -65,13 +66,15 @@ class PostController
             post.is_draft = is_draft === "on"
 
             await post.save()
-            await post.tags().sync(tags || [])
+            await post.tags().sync(tagsIDs)
         }
         catch (err)
         {
             console.error(err)
-            const tags = await this.getTagsWithSelected(post.id)
-            return view.render('Admin/Posts/PostEdit', { error: `Erreur d'insertion`, post: post, tags: tags.toJSON() })
+            
+            const tags = (await Tag.all()).toJSON()
+            tags.forEach(tag => tag.is_selected = tagsIDs.includes(tag.id))
+            return view.render('Admin/Posts/PostEdit', { error: `Erreur d'insertion`, post: post, tags: tags })
         }
 
         return response.redirect('/admin/posts')
