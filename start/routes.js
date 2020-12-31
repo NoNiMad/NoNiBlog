@@ -44,3 +44,5 @@ Route.group(() =>
     })
     .prefix('admin')
     .middleware(['auth', 'isAdmin'])
+
+Route.get("letter/:slug", "LettersController.read")

@@ -1,0 +1,19 @@
+html, body {
+    font-family: 'SegoeUI', sans-serif;
+    background: url('hexellence.png');
+}
+
+html, body, .container, .columns, .column {
+    height: 100%;
+}
+
+.container {
+    margin-top: 2em;
+}
+
+#date {
+    font-style: italic;
+    font-size: 10px;
+    color: gray;
+    float: right;
+}

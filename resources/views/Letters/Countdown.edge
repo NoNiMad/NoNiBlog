@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ letter.title }}</title>
+    {{ style('bulma.min') }}
+    {{ style('style_letter') }}
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="box">
+                    <div class="has-text-centered title is-4">"{{ letter.title }}" sera lisible dans <span id="countdown"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const availableAt = {{ letter.available_start.getTime() }}
+    </script>
+
+    <script>
+        function updateCountdown()
+        {
+            const totalSecondsLeft = Math.floor((availableAt - Date.now()) / 1000)
+
+            if (totalSecondsLeft <= 0)
+            {
+                document.location.reload()
+                return
+            }
+
+            let secondsLeft = totalSecondsLeft % 60
+            let hoursLeft = Math.floor(totalSecondsLeft / 3600)
+            let minutesLeft = Math.floor(totalSecondsLeft / 60) - hoursLeft * 60
+
+            let resultString = (hoursLeft < 10 ? "0" : "") + hoursLeft
+            resultString += ":" + (minutesLeft < 10 ? "0" : "") + minutesLeft
+            resultString += ":" + (secondsLeft < 10 ? "0" : "") + secondsLeft
+
+            document.querySelector("#countdown").innerText = resultString
+        }
+
+        updateCountdown()
+        setInterval(updateCountdown, 1000)
+    </script>
+</body>
+
+</html>
