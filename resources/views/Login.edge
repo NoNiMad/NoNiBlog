@@ -2,23 +2,23 @@
 
 @section('content')
 <div class="box">
-  <form action="login" method="POST">
-    <div class="field">
-      <label class="label">Nom d'utilisateur</label>
-      <div class="control">
-        <input class="input" type="text" name="email" placeholder="xXx_GamerDu64_xXx">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label" for="password">Mot de passe</label>
-      <div class="control">
-        <input class="input" type="password" name="password" />
-      </div>
-    </div>
-    <div class="control">
-      <button class="button is-primary">Se connecter</button>
-    </div>
-    {{ csrfField() }}
-  </form>
+    <form action="login" method="POST">
+        <div class="field">
+            <label class="label">Nom d'utilisateur</label>
+            <div class="control">
+                <input class="input" type="text" name="email" placeholder="xXx_GamerDu64_xXx">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="password">Mot de passe</label>
+            <div class="control">
+                <input class="input" type="password" name="password" />
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary">Se connecter</button>
+        </div>
+        {{ csrfField() }}
+    </form>
 </div>
 @endsection

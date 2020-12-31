@@ -1,14 +1,14 @@
 <div class="box">
-  <div class="title is-4">{{ post.title }}</div>
-  <div class="subtitle is-6 is-pulled-right">le {{ post.created_at }} par {{ post.author.username }}</div>
-  <div class="content markdown">
-    {{{ post.content }}}
-  </div>
-  <div class="tags">
-    @each(tag in post.tags)
-      <a href="{{ route('GlobalController.postsForTag', { id: tag.id }) }}">
-        <span class="tag">{{ tag.name }}</span>
-      </a>
-    @endeach
-  </div>
+    <div class="title is-4">{{ post.title }}</div>
+    <div class="subtitle is-6 is-pulled-right">le {{ post.created_at }} par {{ post.author.username }}</div>
+    <div class="content markdown">
+        {{{ post.content }}}
+    </div>
+    <div class="tags">
+        @each(tag in post.tags)
+            <a href="{{ route('GlobalController.postsForTag', { id: tag.id }) }}">
+                <span class="tag">{{ tag.name }}</span>
+            </a>
+        @endeach
+    </div>
 </div>

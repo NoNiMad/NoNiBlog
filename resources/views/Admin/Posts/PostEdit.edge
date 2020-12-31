@@ -1,11 +1,11 @@
 @layout('LayoutAdmin')
 
 @section('css')
-{{ style('markdown') }}
+    {{ style('markdown') }}
 @endsection
 
 @section('js')
-{{ script('https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js') }}
+    {{ script('https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js') }}
 @endsection
 
 @section('content')
@@ -38,9 +38,9 @@
         <label class="checkbox">Tags :
             <div class="select is-multiple">
                 <select multiple size="3" name="tags">
-                @each(tag in tags)
-                    <option value="{{ tag.id }}" {{ tag.is_selected ? "selected" : "" }}>{{ tag.name }}</option>
-                @endeach
+                    @each(tag in tags)
+                        <option value="{{ tag.id }}" {{ tag.is_selected ? "selected" : "" }}>{{ tag.name }}</option>
+                    @endeach
                 </select>
             </div>
         </label>

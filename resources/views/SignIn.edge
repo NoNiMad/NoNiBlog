@@ -2,35 +2,35 @@
 
 @section('content')
 <div class="box">
-  <form action="sign-in" method="POST">
-    <div class="field">
-      <label class="label">Nom d'utilisateur</label>
-      <div class="control">
-        <input class="input" type="text" name="username" placeholder="De 3 à 20 caractères">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Adresse mail</label>
-      <div class="control">
-        <input class="input" type="text" name="email" placeholder="jenluc@gmail.com">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label" for="password">Mot de passe</label>
-      <div class="control">
-        <input class="input" type="password" name="password" placeholder="Pas 123456, pas 123456..." />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label" for="password">Répéter le mot de passe</label>
-      <div class="control">
-        <input class="input" type="password" name="password2" placeholder="Comme au dessus T_T" />
-      </div>
-    </div>
-    <div class="control">
-      <button class="button is-primary">S'inscrire</button>
-    </div>
-    {{ csrfField() }}
-  </form>
+    <form action="sign-in" method="POST">
+        <div class="field">
+            <label class="label">Nom d'utilisateur</label>
+            <div class="control">
+                <input class="input" type="text" name="username" placeholder="De 3 à 20 caractères">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Adresse mail</label>
+            <div class="control">
+                <input class="input" type="text" name="email" placeholder="jenluc@gmail.com">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="password">Mot de passe</label>
+            <div class="control">
+                <input class="input" type="password" name="password" placeholder="Pas 123456, pas 123456..." />
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="password">Répéter le mot de passe</label>
+            <div class="control">
+                <input class="input" type="password" name="password2" placeholder="Comme au dessus T_T" />
+            </div>
+        </div>
+        <div class="control">
+            <button class="button is-primary">S'inscrire</button>
+        </div>
+        {{ csrfField() }}
+    </form>
 </div>
 @endsection
